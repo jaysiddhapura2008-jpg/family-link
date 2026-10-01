@@ -1,0 +1,1338 @@
+{
+  "users": [
+    {
+      "id": "usr_mom",
+      "name": "Mom (Anita)",
+      "phone": "+1 555-0101",
+      "email": "mom@example.com",
+      "avatar": "👩",
+      "role": "parent",
+      "password": "password123"
+    },
+    {
+      "id": "usr_dad",
+      "name": "Dad (Rajesh)",
+      "phone": "+1 555-0102",
+      "email": "dad@example.com",
+      "avatar": "👨",
+      "role": "parent",
+      "password": "password123"
+    },
+    {
+      "id": "usr_alex",
+      "name": "Alex",
+      "phone": "+1 555-0103",
+      "email": "alex@example.com",
+      "avatar": "👦",
+      "role": "child",
+      "password": "password123"
+    },
+    {
+      "id": "usr_sarah",
+      "name": "Sarah",
+      "phone": "+1 555-0104",
+      "email": "sarah@example.com",
+      "avatar": "👧",
+      "role": "child",
+      "password": "password123"
+    },
+    {
+      "id": "usr_1790688819039",
+      "name": "Alice Johnson",
+      "email": "alice_1790688818792@test.com",
+      "phone": "+1 555-8881",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T13:33:39.039Z"
+    },
+    {
+      "id": "usr_1790688819110",
+      "name": "Ben Johnson",
+      "email": "ben_1790688819090@test.com",
+      "phone": "+1 555-8882",
+      "password": "password",
+      "avatar": "👦",
+      "role": "child",
+      "createdAt": "2026-09-29T13:33:39.110Z"
+    },
+    {
+      "id": "usr_1790689469557",
+      "name": "Alice Johnson",
+      "email": "alice_1790689469364@test.com",
+      "phone": "+1 555-8881",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T13:44:29.557Z"
+    },
+    {
+      "id": "usr_1790689469614",
+      "name": "Ben Johnson",
+      "email": "ben_1790689469609@test.com",
+      "phone": "+1 555-8882",
+      "password": "password",
+      "avatar": "👦",
+      "role": "child",
+      "createdAt": "2026-09-29T13:44:29.614Z"
+    },
+    {
+      "id": "usr_1790697702482",
+      "name": "Alice Johnson",
+      "email": "alice_1790697702277@test.com",
+      "phone": "+1 555-8881",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T16:01:42.482Z"
+    },
+    {
+      "id": "usr_1790697702533",
+      "name": "Ben Johnson",
+      "email": "ben_1790697702524@test.com",
+      "phone": "+1 555-8882",
+      "password": "password",
+      "avatar": "👦",
+      "role": "child",
+      "createdAt": "2026-09-29T16:01:42.533Z"
+    },
+    {
+      "id": "usr_1790699167616",
+      "name": "Rohan Sharma",
+      "email": "rohan_1790699167420@example.com",
+      "phone": "",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T16:26:07.616Z"
+    },
+    {
+      "id": "usr_1790699167709",
+      "name": "Stranger John",
+      "email": "stranger_1790699167699@example.com",
+      "phone": "",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T16:26:07.709Z"
+    },
+    {
+      "id": "usr_1790699182128",
+      "name": "Rohan Sharma",
+      "email": "rohan_1790699181957@example.com",
+      "phone": "",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T16:26:22.128Z"
+    },
+    {
+      "id": "usr_1790699182215",
+      "name": "Stranger John",
+      "email": "stranger_1790699182210@example.com",
+      "phone": "",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T16:26:22.215Z"
+    },
+    {
+      "id": "usr_1790699188526",
+      "name": "Alice Johnson",
+      "email": "alice_1790699188336@test.com",
+      "phone": "+1 555-8881",
+      "password": "password",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-09-29T16:26:28.526Z"
+    },
+    {
+      "id": "usr_1790699188573",
+      "name": "Ben Johnson",
+      "email": "ben_1790699188568@test.com",
+      "phone": "+1 555-8882",
+      "password": "password",
+      "avatar": "👦",
+      "role": "child",
+      "createdAt": "2026-09-29T16:26:28.574Z"
+    },
+    {
+      "id": "usr_1790870717165",
+      "name": "Meghana siddhapura ",
+      "email": "meghnasiddhapura@gmail.com",
+      "phone": "6351200364",
+      "password": "03122008",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-10-01T16:05:17.165Z"
+    },
+    {
+      "id": "usr_1790876670431",
+      "name": "Jay ",
+      "email": "siddhapurajay2008@gmail.com",
+      "phone": "6355210364",
+      "password": "03122008",
+      "avatar": "👤",
+      "role": "parent",
+      "createdAt": "2026-10-01T17:44:30.431Z"
+    }
+  ],
+  "families": [
+    {
+      "id": "fam_sharma",
+      "name": "Sharma Family",
+      "code": "SHARMA-789",
+      "photo": "👨‍👩‍👧‍👦",
+      "createdBy": "usr_mom",
+      "createdAt": "2026-09-29T13:32:27.547Z"
+    },
+    {
+      "id": "fam_1790688819083",
+      "name": "Johnson Circle",
+      "code": "JOHNS-494",
+      "photo": "🏡",
+      "createdBy": "usr_1790688819039",
+      "createdAt": "2026-09-29T13:33:39.083Z"
+    },
+    {
+      "id": "fam_1790689469594",
+      "name": "Johnson Circle",
+      "code": "JOHNS-146",
+      "photo": "🏡",
+      "createdBy": "usr_1790689469557",
+      "createdAt": "2026-09-29T13:44:29.594Z"
+    },
+    {
+      "id": "fam_1790697702517",
+      "name": "Johnson Circle",
+      "code": "JOHNS-685",
+      "photo": "🏡",
+      "createdBy": "usr_1790697702482",
+      "createdAt": "2026-09-29T16:01:42.517Z"
+    },
+    {
+      "id": "fam_1790697786391",
+      "name": "Sharma Family",
+      "code": "SHARM-185",
+      "photo": "👨‍👩‍👧‍👦",
+      "createdBy": "usr_mom",
+      "createdAt": "2026-09-29T16:03:06.391Z"
+    },
+    {
+      "id": "fam_1790699167671",
+      "name": "Rohan Circle",
+      "code": "ROHAN-974",
+      "photo": "👨‍👩‍👧‍👦",
+      "createdBy": "usr_1790699167616",
+      "createdAt": "2026-09-29T16:26:07.671Z"
+    },
+    {
+      "id": "fam_1790699182168",
+      "name": "Rohan Circle",
+      "code": "ROHAN-599",
+      "photo": "👨‍👩‍👧‍👦",
+      "createdBy": "usr_1790699182128",
+      "createdAt": "2026-09-29T16:26:22.168Z"
+    },
+    {
+      "id": "fam_1790699188562",
+      "name": "Johnson Circle",
+      "code": "JOHNS-913",
+      "photo": "🏡",
+      "createdBy": "usr_1790699188526",
+      "createdAt": "2026-09-29T16:26:28.562Z"
+    },
+    {
+      "id": "fam_1790701428260",
+      "name": "Janak bhai Family",
+      "code": "JANAK-520",
+      "photo": "👨‍👩‍👧‍👦",
+      "createdBy": "usr_mom",
+      "createdAt": "2026-09-29T17:03:48.260Z"
+    },
+    {
+      "id": "fam_1790870750600",
+      "name": "Janak bhai  family",
+      "code": "JANAK-528",
+      "photo": "👨‍👩‍👧‍👦",
+      "createdBy": "usr_1790870717165",
+      "createdAt": "2026-10-01T16:05:50.600Z"
+    }
+  ],
+  "familyMembers": [
+    {
+      "familyId": "fam_sharma",
+      "userId": "usr_mom",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_sharma",
+      "userId": "usr_dad",
+      "role": "Member"
+    },
+    {
+      "familyId": "fam_sharma",
+      "userId": "usr_alex",
+      "role": "Child"
+    },
+    {
+      "familyId": "fam_sharma",
+      "userId": "usr_sarah",
+      "role": "Child"
+    },
+    {
+      "familyId": "fam_1790688819083",
+      "userId": "usr_1790688819039",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790688819083",
+      "userId": "usr_1790688819110",
+      "role": "Member"
+    },
+    {
+      "familyId": "fam_1790689469594",
+      "userId": "usr_1790689469557",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790689469594",
+      "userId": "usr_1790689469614",
+      "role": "Member"
+    },
+    {
+      "familyId": "fam_1790697702517",
+      "userId": "usr_1790697702482",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790697702517",
+      "userId": "usr_1790697702533",
+      "role": "Member"
+    },
+    {
+      "familyId": "fam_1790697786391",
+      "userId": "usr_mom",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790699167671",
+      "userId": "usr_1790699167616",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790699182168",
+      "userId": "usr_1790699182128",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790699188562",
+      "userId": "usr_1790699188526",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790699188562",
+      "userId": "usr_1790699188573",
+      "role": "Member"
+    },
+    {
+      "familyId": "fam_1790701428260",
+      "userId": "usr_mom",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "role": "Admin"
+    },
+    {
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790876670431",
+      "role": "Member"
+    }
+  ],
+  "locations": {
+    "usr_mom": {
+      "latitude": 21.200543,
+      "longitude": 72.8520484,
+      "accuracy": 24.899999618530273,
+      "battery": 43,
+      "speed": 0,
+      "status": "Active",
+      "lastUpdated": "2026-10-01T17:44:25.016Z"
+    },
+    "usr_dad": {
+      "latitude": 21.118,
+      "longitude": 72.775,
+      "accuracy": 12,
+      "battery": 64,
+      "status": "Work",
+      "speed": 0,
+      "lastUpdated": "2026-10-01T16:41:05.344Z"
+    },
+    "usr_alex": {
+      "latitude": 21.162,
+      "longitude": 72.784,
+      "accuracy": 8,
+      "battery": 72,
+      "status": "Moving",
+      "speed": 15.5,
+      "lastUpdated": "2026-10-01T16:41:05.344Z"
+    },
+    "usr_sarah": {
+      "latitude": 21.146,
+      "longitude": 72.779,
+      "accuracy": 12,
+      "battery": 55,
+      "status": "Offline",
+      "speed": 0,
+      "lastUpdated": "2026-10-01T16:41:05.344Z"
+    },
+    "usr_1790870717165": {
+      "latitude": 21.2005174,
+      "longitude": 72.852043,
+      "accuracy": 59.78200149536133,
+      "battery": 60,
+      "speed": 0.03319771587848663,
+      "status": "Active",
+      "lastUpdated": "2026-10-01T18:08:24.998Z"
+    },
+    "usr_1790876670431": {
+      "latitude": 21.2005197,
+      "longitude": 72.8520381,
+      "accuracy": 30,
+      "battery": 41,
+      "speed": 0,
+      "status": "Active",
+      "lastUpdated": "2026-10-01T17:59:48.215Z"
+    }
+  },
+  "privacySettings": {
+    "usr_mom": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_dad",
+        "usr_alex",
+        "usr_sarah"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_dad": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_mom",
+        "usr_alex",
+        "usr_sarah"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_alex": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_mom",
+        "usr_dad"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_sarah": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [],
+      "activitySharingEnabled": true
+    },
+    "usr_1790688819039": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790688819110"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790688819110": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790688819039"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790689469557": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790689469614"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790689469614": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790689469557"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790697702482": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790697702533"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790697702533": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790697702482"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790699167616": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [],
+      "activitySharingEnabled": true
+    },
+    "usr_1790699167709": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [],
+      "activitySharingEnabled": true
+    },
+    "usr_1790699182128": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [],
+      "activitySharingEnabled": true
+    },
+    "usr_1790699182215": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [],
+      "activitySharingEnabled": true
+    },
+    "usr_1790699188526": {
+      "locationSharingEnabled": false,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790699188573"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790699188573": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790699188526"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790870717165": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790876670431"
+      ],
+      "activitySharingEnabled": true
+    },
+    "usr_1790876670431": {
+      "locationSharingEnabled": true,
+      "shareDuration": "always",
+      "shareUntil": null,
+      "allowedMemberIds": [
+        "usr_1790870717165"
+      ],
+      "activitySharingEnabled": true
+    }
+  },
+  "savedPlaces": [
+    {
+      "id": "plc_home",
+      "familyId": "fam_sharma",
+      "createdBy": "usr_mom",
+      "category": "Home",
+      "name": "Home (Adajan)",
+      "address": "Anand Mahal Road, Adajan, Surat, Gujarat 395009",
+      "icon": "🏠",
+      "latitude": 21.1945,
+      "longitude": 72.7933,
+      "radius": 100,
+      "notifications": {
+        "usr_alex": {
+          "onArrival": true,
+          "onDeparture": true
+        }
+      },
+      "_memberPresence": {}
+    },
+    {
+      "id": "plc_school",
+      "familyId": "fam_sharma",
+      "createdBy": "usr_mom",
+      "category": "School",
+      "name": "School (Piplod)",
+      "address": "Dumas Road, Piplod, Surat, Gujarat 395007",
+      "icon": "🏫",
+      "latitude": 21.162,
+      "longitude": 72.784,
+      "radius": 100,
+      "notifications": {},
+      "_memberPresence": {}
+    },
+    {
+      "id": "plc_work",
+      "familyId": "fam_sharma",
+      "createdBy": "usr_dad",
+      "category": "Work",
+      "name": "Surat Diamond Bourse",
+      "address": "Khajod, DREAM City, Surat 395007",
+      "icon": "💼",
+      "latitude": 21.118,
+      "longitude": 72.775,
+      "radius": 100,
+      "notifications": {},
+      "_memberPresence": {}
+    },
+    {
+      "id": "plc_gym",
+      "familyId": "fam_sharma",
+      "createdBy": "usr_mom",
+      "category": "Gym",
+      "name": "Gold's Gym (Athwa)",
+      "address": "Ghod Dod Road, Athwa, Surat, Gujarat 395007",
+      "icon": "🏋️",
+      "latitude": 21.173,
+      "longitude": 72.802,
+      "radius": 80,
+      "notifications": {},
+      "_memberPresence": {}
+    },
+    {
+      "familyId": "fam_1790870750600",
+      "createdBy": "usr_1790870717165",
+      "category": "Home",
+      "name": "Home (Adajan)",
+      "address": "Asia, Asia/Kolkata, Surat, Gujarat, India",
+      "icon": "🏠",
+      "latitude": 21.200679,
+      "longitude": 72.852129,
+      "radius": 100,
+      "notifications": {},
+      "id": "plc_1790876564507_kj6fw",
+      "_memberPresence": {
+        "usr_1790870717165": true,
+        "usr_1790876670431": true
+      }
+    },
+    {
+      "familyId": "fam_1790870750600",
+      "createdBy": "usr_1790870717165",
+      "category": "School",
+      "name": "School / College (Piplod)",
+      "address": "Asia, Asia/Kolkata, Surat, Gujarat, India",
+      "icon": "🏫",
+      "latitude": 21.205261,
+      "longitude": 72.88287,
+      "radius": 100,
+      "notifications": {},
+      "id": "plc_1790877039567_awkk1",
+      "_memberPresence": {}
+    },
+    {
+      "familyId": "fam_1790870750600",
+      "createdBy": "usr_1790870717165",
+      "category": "Custom",
+      "name": "Library ",
+      "address": "Asia, Asia/Kolkata, Surat, Gujarat, India",
+      "icon": "❤️",
+      "latitude": 21.202462,
+      "longitude": 72.84595,
+      "radius": 100,
+      "notifications": {},
+      "id": "plc_1790877258771_bfji9",
+      "_memberPresence": {}
+    }
+  ],
+  "trips": [
+    {
+      "id": "trip_1790871138036",
+      "status": "completed",
+      "startedAt": "2026-10-01T16:12:18.036Z",
+      "category": "Home",
+      "destinationName": "Home",
+      "detailedAddress": "B-14 Connaught Place, New Delhi",
+      "announcement": "Heading to Home — B-14 Connaught Place, New Delhi",
+      "destLat": 28.6139,
+      "destLng": 77.209,
+      "distanceKm": 2.5,
+      "etaMinutes": 8,
+      "sharedWith": [
+        "usr_dad",
+        "usr_alex",
+        "usr_sarah"
+      ],
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "familyId": "fam_1790870750600",
+      "endedAt": "2026-10-01T16:12:22.530Z"
+    },
+    {
+      "id": "trip_1790871130626",
+      "status": "completed",
+      "startedAt": "2026-10-01T16:12:10.626Z",
+      "category": "Home",
+      "destinationName": "Home",
+      "detailedAddress": "B-14 Connaught Place, New Delhi",
+      "announcement": "Heading to Home — B-14 Connaught Place, New Delhi",
+      "destLat": 28.6139,
+      "destLng": 77.209,
+      "distanceKm": 2.5,
+      "etaMinutes": 8,
+      "sharedWith": [
+        "usr_dad",
+        "usr_alex",
+        "usr_sarah"
+      ],
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "familyId": "fam_1790870750600",
+      "endedAt": "2026-10-01T16:12:13.709Z"
+    },
+    {
+      "id": "trip_1790699182277",
+      "status": "active",
+      "startedAt": "2026-09-29T16:26:22.277Z",
+      "category": "Work",
+      "destinationName": "Office (Tech Park)",
+      "detailedAddress": "Tower 4, Barakhamba Road, Connaught Place, New Delhi",
+      "announcement": "Heading to Work (Office (Tech Park)) — Tower 4, Barakhamba Road, Connaught Place, New Delhi",
+      "familyId": "fam_1790699182168",
+      "userId": "usr_1790699182128",
+      "userName": "Rohan Sharma",
+      "destLat": 28.6318,
+      "destLng": 77.2194
+    },
+    {
+      "id": "trip_1",
+      "userId": "usr_alex",
+      "userName": "Alex",
+      "destinationName": "City Mall",
+      "destLat": 40.7549,
+      "destLng": -73.984,
+      "status": "active",
+      "sharedWith": [
+        "usr_mom",
+        "usr_dad"
+      ],
+      "etaMinutes": 12,
+      "distanceKm": 4.2,
+      "startedAt": "2026-09-29T13:27:27.549Z",
+      "expectedArrival": "8:25 PM"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act_1790877185415r36",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  arrived at Home (Adajan)",
+      "time": "11:23 pm",
+      "timestamp": "2026-10-01T17:53:05.415Z"
+    },
+    {
+      "id": "act_1790877166290xns",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_departure",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  left Home (Adajan)",
+      "time": "11:22 pm",
+      "timestamp": "2026-10-01T17:52:46.290Z"
+    },
+    {
+      "id": "act_1790877153011n4s",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  arrived at Home (Adajan)",
+      "time": "11:22 pm",
+      "timestamp": "2026-10-01T17:52:33.011Z"
+    },
+    {
+      "id": "act_1790877140823bod",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_departure",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  left Home (Adajan)",
+      "time": "11:22 pm",
+      "timestamp": "2026-10-01T17:52:20.823Z"
+    },
+    {
+      "id": "act_1790877116734tpv",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  arrived at Home (Adajan)",
+      "time": "11:21 pm",
+      "timestamp": "2026-10-01T17:51:56.734Z"
+    },
+    {
+      "id": "act_1790877090182cwu",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_departure",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  left Home (Adajan)",
+      "time": "11:21 pm",
+      "timestamp": "2026-10-01T17:51:30.182Z"
+    },
+    {
+      "id": "act_1790877078170h68",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  arrived at Home (Adajan)",
+      "time": "11:21 pm",
+      "timestamp": "2026-10-01T17:51:18.170Z"
+    },
+    {
+      "id": "act_17908770561598to",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_departure",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  left Home (Adajan)",
+      "time": "11:20 pm",
+      "timestamp": "2026-10-01T17:50:56.159Z"
+    },
+    {
+      "id": "act_1790876710548r3p",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790876670431",
+      "userName": "Jay ",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Jay  arrived at Home (Adajan)",
+      "time": "11:15 pm",
+      "timestamp": "2026-10-01T17:45:10.549Z"
+    },
+    {
+      "id": "act_1790876700904",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790876670431",
+      "userName": "Jay ",
+      "type": "member_joined",
+      "icon": "👋",
+      "text": "Jay  joined Janak bhai  family",
+      "time": "11:15 pm",
+      "timestamp": "2026-10-01T17:45:00.904Z"
+    },
+    {
+      "id": "act_17908766939660ds",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  arrived at Home (Adajan)",
+      "time": "11:14 pm",
+      "timestamp": "2026-10-01T17:44:53.985Z"
+    },
+    {
+      "id": "act_1790871270552eel",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Meghana siddhapura  arrived at Home",
+      "time": "09:44 pm",
+      "timestamp": "2026-10-01T16:14:30.552Z"
+    },
+    {
+      "id": "act_1790871142530",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "trip_end",
+      "icon": "🏁",
+      "text": "Meghana siddhapura  arrived at Home",
+      "time": "09:42 pm",
+      "timestamp": "2026-10-01T16:12:22.530Z"
+    },
+    {
+      "id": "act_1790871138036",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "trip_start",
+      "icon": "🚗",
+      "text": "Meghana siddhapura : Heading to Home — B-14 Connaught Place, New Delhi",
+      "time": "09:42 pm",
+      "timestamp": "2026-10-01T16:12:18.037Z"
+    },
+    {
+      "id": "act_1790871133709",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "trip_end",
+      "icon": "🏁",
+      "text": "Meghana siddhapura  arrived at Home",
+      "time": "09:42 pm",
+      "timestamp": "2026-10-01T16:12:13.709Z"
+    },
+    {
+      "id": "act_1790871130626",
+      "familyId": "fam_1790870750600",
+      "userId": "usr_1790870717165",
+      "userName": "Meghana siddhapura ",
+      "type": "trip_start",
+      "icon": "🚗",
+      "text": "Meghana siddhapura : Heading to Home — B-14 Connaught Place, New Delhi",
+      "time": "09:42 pm",
+      "timestamp": "2026-10-01T16:12:10.645Z"
+    },
+    {
+      "id": "act_17906991887090o1",
+      "familyId": "fam_1790699188562",
+      "userId": "usr_1790699188573",
+      "userName": "Ben Johnson",
+      "type": "place_arrival",
+      "icon": "🏫",
+      "text": "Ben Johnson arrived at Lincoln School",
+      "time": "09:56 pm",
+      "timestamp": "2026-09-29T16:26:28.709Z"
+    },
+    {
+      "id": "act_1790699188599",
+      "familyId": "fam_1790699188562",
+      "userId": "usr_1790699188573",
+      "userName": "Ben Johnson",
+      "type": "member_joined",
+      "icon": "👋",
+      "text": "Ben Johnson joined Johnson Circle",
+      "time": "09:56 pm",
+      "timestamp": "2026-09-29T16:26:28.599Z"
+    },
+    {
+      "id": "act_1790699182277",
+      "familyId": "fam_1790699182168",
+      "userId": "usr_1790699182128",
+      "userName": "Rohan Sharma",
+      "type": "trip_start",
+      "icon": "🚗",
+      "text": "Rohan Sharma: Heading to Work (Office (Tech Park)) — Tower 4, Barakhamba Road, Connaught Place, New Delhi",
+      "time": "09:56 pm",
+      "timestamp": "2026-09-29T16:26:22.372Z"
+    },
+    {
+      "id": "act_17906977027651xi",
+      "familyId": "fam_1790697702517",
+      "userId": "usr_1790697702533",
+      "userName": "Ben Johnson",
+      "type": "place_arrival",
+      "icon": "🏫",
+      "text": "Ben Johnson arrived at Lincoln School",
+      "time": "09:31 pm",
+      "timestamp": "2026-09-29T16:01:42.766Z"
+    },
+    {
+      "id": "act_1790697702551",
+      "familyId": "fam_1790697702517",
+      "userId": "usr_1790697702533",
+      "userName": "Ben Johnson",
+      "type": "member_joined",
+      "icon": "👋",
+      "text": "Ben Johnson joined Johnson Circle",
+      "time": "09:31 pm",
+      "timestamp": "2026-09-29T16:01:42.668Z"
+    },
+    {
+      "id": "act_1790690106663thp",
+      "familyId": "fam_1790688819083",
+      "userId": "usr_1790688819110",
+      "userName": "Ben Johnson",
+      "type": "place_departure",
+      "icon": "🏫",
+      "text": "Ben Johnson left Lincoln School",
+      "time": "07:25 pm",
+      "timestamp": "2026-09-29T13:55:06.665Z"
+    },
+    {
+      "id": "act_17906900969947kr",
+      "familyId": "fam_sharma",
+      "userId": "usr_dad",
+      "userName": "Dad (Rajesh)",
+      "type": "place_departure",
+      "icon": "🏠",
+      "text": "Dad (Rajesh) left Home",
+      "time": "07:24 pm",
+      "timestamp": "2026-09-29T13:54:56.995Z"
+    },
+    {
+      "id": "act_sos_1790690059500",
+      "familyId": "fam_sharma",
+      "userId": "usr_mom",
+      "userName": "Mom (Anita)",
+      "type": "sos",
+      "icon": "🚨",
+      "text": "EMERGENCY ALERT triggered by Mom (Anita)!",
+      "time": "07:24 pm",
+      "timestamp": "2026-09-29T13:54:19.500Z"
+    },
+    {
+      "id": "act_1790689610597cjb",
+      "familyId": "fam_sharma",
+      "userId": "usr_dad",
+      "userName": "Dad (Rajesh)",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "timestamp": "2026-09-29T13:46:50.598Z"
+    },
+    {
+      "id": "act_1790689609557odu",
+      "familyId": "fam_sharma",
+      "userId": "usr_dad",
+      "userName": "Dad (Rajesh)",
+      "type": "place_departure",
+      "icon": "🏠",
+      "text": "Dad (Rajesh) left Home",
+      "time": "07:16 pm",
+      "timestamp": "2026-09-29T13:46:49.558Z"
+    },
+    {
+      "id": "act_1790689581902g1t",
+      "familyId": "fam_sharma",
+      "userId": "usr_dad",
+      "userName": "Dad (Rajesh)",
+      "type": "place_arrival",
+      "icon": "🏠",
+      "text": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "timestamp": "2026-09-29T13:46:21.902Z"
+    },
+    {
+      "id": "act_1790689469845ew5",
+      "familyId": "fam_1790689469594",
+      "userId": "usr_1790689469614",
+      "userName": "Ben Johnson",
+      "type": "place_arrival",
+      "icon": "🏫",
+      "text": "Ben Johnson arrived at Lincoln School",
+      "time": "07:14 pm",
+      "timestamp": "2026-09-29T13:44:29.845Z"
+    },
+    {
+      "id": "act_1790689469629",
+      "familyId": "fam_1790689469594",
+      "userId": "usr_1790689469614",
+      "userName": "Ben Johnson",
+      "type": "member_joined",
+      "icon": "👋",
+      "text": "Ben Johnson joined Johnson Circle",
+      "time": "07:14 pm",
+      "timestamp": "2026-09-29T13:44:29.712Z"
+    },
+    {
+      "id": "act_1790688819327x15",
+      "familyId": "fam_1790688819083",
+      "userId": "usr_1790688819110",
+      "userName": "Ben Johnson",
+      "type": "place_arrival",
+      "icon": "🏫",
+      "text": "Ben Johnson arrived at Lincoln School",
+      "time": "07:03 pm",
+      "timestamp": "2026-09-29T13:33:39.327Z"
+    },
+    {
+      "id": "act_1790688819127",
+      "familyId": "fam_1790688819083",
+      "userId": "usr_1790688819110",
+      "userName": "Ben Johnson",
+      "type": "member_joined",
+      "icon": "👋",
+      "text": "Ben Johnson joined Johnson Circle",
+      "time": "07:03 pm",
+      "timestamp": "2026-09-29T13:33:39.222Z"
+    },
+    {
+      "id": "act_1",
+      "familyId": "fam_sharma",
+      "userId": "usr_alex",
+      "userName": "Alex",
+      "type": "place_arrival",
+      "icon": "📍",
+      "text": "Alex arrived at School",
+      "time": "8:20 AM",
+      "timestamp": "2026-09-29T03:32:27.549Z"
+    },
+    {
+      "id": "act_2",
+      "familyId": "fam_sharma",
+      "userId": "usr_alex",
+      "userName": "Alex",
+      "type": "place_departure",
+      "icon": "📍",
+      "text": "Alex left School",
+      "time": "6:40 PM",
+      "timestamp": "2026-09-29T11:32:27.549Z"
+    },
+    {
+      "id": "act_3",
+      "familyId": "fam_sharma",
+      "userId": "usr_alex",
+      "userName": "Alex",
+      "type": "place_arrival",
+      "icon": "📍",
+      "text": "Alex arrived Gym",
+      "time": "7:05 PM",
+      "timestamp": "2026-09-29T12:17:27.549Z"
+    },
+    {
+      "id": "act_4",
+      "familyId": "fam_sharma",
+      "userId": "usr_alex",
+      "userName": "Alex",
+      "type": "trip_start",
+      "icon": "🔵",
+      "text": "Alex started trip: Going to City Mall",
+      "time": "8:00 PM",
+      "timestamp": "2026-09-29T13:27:27.549Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_1790871138037whd",
+      "userId": "usr_sarah",
+      "title": "Trip Announcement",
+      "body": "Meghana siddhapura  is Heading to Home — B-14 Connaught Place, New Delhi. ETA: 8 min.",
+      "time": "09:42 pm",
+      "read": false
+    },
+    {
+      "id": "notif_17908711380377rj",
+      "userId": "usr_alex",
+      "title": "Trip Announcement",
+      "body": "Meghana siddhapura  is Heading to Home — B-14 Connaught Place, New Delhi. ETA: 8 min.",
+      "time": "09:42 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790871138037tpy",
+      "userId": "usr_dad",
+      "title": "Trip Announcement",
+      "body": "Meghana siddhapura  is Heading to Home — B-14 Connaught Place, New Delhi. ETA: 8 min.",
+      "time": "09:42 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790871130645b0m",
+      "userId": "usr_sarah",
+      "title": "Trip Announcement",
+      "body": "Meghana siddhapura  is Heading to Home — B-14 Connaught Place, New Delhi. ETA: 8 min.",
+      "time": "09:42 pm",
+      "read": false
+    },
+    {
+      "id": "notif_17908711306452pq",
+      "userId": "usr_alex",
+      "title": "Trip Announcement",
+      "body": "Meghana siddhapura  is Heading to Home — B-14 Connaught Place, New Delhi. ETA: 8 min.",
+      "time": "09:42 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790871130645oyz",
+      "userId": "usr_dad",
+      "title": "Trip Announcement",
+      "body": "Meghana siddhapura  is Heading to Home — B-14 Connaught Place, New Delhi. ETA: 8 min.",
+      "time": "09:42 pm",
+      "read": false
+    },
+    {
+      "id": "notif_179069918871022a",
+      "userId": "usr_1790699188526",
+      "title": "Place Alert",
+      "body": "Ben Johnson arrived at Lincoln School",
+      "time": "09:56 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790697702766if8",
+      "userId": "usr_1790697702482",
+      "title": "Place Alert",
+      "body": "Ben Johnson arrived at Lincoln School",
+      "time": "09:31 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790690106665yd5",
+      "userId": "usr_1790688819039",
+      "title": "Place Alert",
+      "body": "Ben Johnson left Lincoln School",
+      "time": "07:25 pm",
+      "read": false
+    },
+    {
+      "id": "notif_sos_179069005949902z",
+      "userId": "usr_sarah",
+      "title": "🚨 EMERGENCY ALERT",
+      "body": "Emergency alert from Mom (Anita)!",
+      "time": "07:24 pm",
+      "read": false,
+      "isEmergency": true
+    },
+    {
+      "id": "notif_sos_1790690059499fnl",
+      "userId": "usr_alex",
+      "title": "🚨 EMERGENCY ALERT",
+      "body": "Emergency alert from Mom (Anita)!",
+      "time": "07:24 pm",
+      "read": false,
+      "isEmergency": true
+    },
+    {
+      "id": "notif_sos_1790690059498e6k",
+      "userId": "usr_dad",
+      "title": "🚨 EMERGENCY ALERT",
+      "body": "Emergency alert from Mom (Anita)!",
+      "time": "07:24 pm",
+      "read": false,
+      "isEmergency": true
+    },
+    {
+      "id": "notif_1790689610600ji1",
+      "userId": "usr_sarah",
+      "title": "Place Alert",
+      "body": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790689610599vbk",
+      "userId": "usr_alex",
+      "title": "Place Alert",
+      "body": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "read": false
+    },
+    {
+      "id": "notif_17906896105985go",
+      "userId": "usr_mom",
+      "title": "Place Alert",
+      "body": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790689581903ryr",
+      "userId": "usr_sarah",
+      "title": "Place Alert",
+      "body": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790689581903tcb",
+      "userId": "usr_alex",
+      "title": "Place Alert",
+      "body": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1790689581902yf2",
+      "userId": "usr_mom",
+      "title": "Place Alert",
+      "body": "Dad (Rajesh) arrived at Home",
+      "time": "07:16 pm",
+      "read": false
+    },
+    {
+      "id": "notif_17906894698457rw",
+      "userId": "usr_1790689469557",
+      "title": "Place Alert",
+      "body": "Ben Johnson arrived at Lincoln School",
+      "time": "07:14 pm",
+      "read": false
+    },
+    {
+      "id": "notif_17906888193272en",
+      "userId": "usr_1790688819039",
+      "title": "Place Alert",
+      "body": "Ben Johnson arrived at Lincoln School",
+      "time": "07:03 pm",
+      "read": false
+    },
+    {
+      "id": "notif_1",
+      "userId": "usr_mom",
+      "title": "Place Alert",
+      "body": "Alex left School.",
+      "time": "6:40 PM",
+      "read": false
+    },
+    {
+      "id": "notif_2",
+      "userId": "usr_mom",
+      "title": "Place Alert",
+      "body": "Alex arrived at Gym.",
+      "time": "7:05 PM",
+      "read": false
+    }
+  ],
+  "sosAlerts": [
+    {
+      "id": "sos_1790690059372",
+      "userId": "usr_mom",
+      "familyId": "fam_sharma",
+      "userName": "Mom (Anita)",
+      "avatar": "👩",
+      "phone": "+1 555-0101",
+      "latitude": 40.772,
+      "longitude": -73.978,
+      "battery": 78,
+      "time": "07:24 pm",
+      "timestamp": "2026-09-29T13:54:19.498Z",
+      "status": "active"
+    }
+  ]
+}
