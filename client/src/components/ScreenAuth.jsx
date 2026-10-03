@@ -17,7 +17,7 @@ export default function ScreenAuth({ isLoginMode = false, onBack, onSuccess }) {
 
     try {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-      const body = isLogin ? { email, password } : { name, phone, email, password };
+      const body = isLogin ? { email: email || name || phone, phone, name, password } : { name, phone, email, password };
 
       const res = await fetch(endpoint, {
         method: 'POST',
@@ -30,7 +30,7 @@ export default function ScreenAuth({ isLoginMode = false, onBack, onSuccess }) {
         throw new Error(data.error || 'Authentication failed');
       }
 
-      onSuccess(data.user, data.families);
+      onSuccess(data.user, data.families || []);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -38,17 +38,26 @@ export default function ScreenAuth({ isLoginMode = false, onBack, onSuccess }) {
     }
   };
 
-  const handleGoogleMock = () => {
-    // Convenient instant sign in for testing
-    const demoUser = {
-      id: 'usr_new_' + Date.now(),
-      name: 'Priya Sharma',
-      email: 'priya@example.com',
-      phone: '+1 555-0999',
-      avatar: '👩',
-      role: 'parent'
-    };
-    onSuccess(demoUser, []);
+  const handleGoogleMock = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Priya Sharma',
+          email: 'priya@example.com',
+          phone: '+91 98765 43210',
+          role: 'parent'
+        })
+      });
+      const data = await res.json();
+      onSuccess(data.user, data.families || []);
+    } catch (e) {
+      setError('Google Sign In failed');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -127,12 +136,12 @@ export default function ScreenAuth({ isLoginMode = false, onBack, onSuccess }) {
         )}
 
         <div>
-          <label className="input-label">Email</label>
+          <label className="input-label">{isLogin ? 'Email, Phone or Name' : 'Email'}</label>
           <div style={{ position: 'relative' }}>
             <input
-              type="email"
+              type={isLogin ? "text" : "email"}
               required
-              placeholder="e.g. mom@example.com"
+              placeholder={isLogin ? "e.g. mom@example.com or phone or name" : "e.g. mom@example.com"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="input-field"

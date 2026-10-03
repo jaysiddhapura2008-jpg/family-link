@@ -337,14 +337,34 @@ class Database {
   }
 
   getUserByEmail(email) {
-    return this.data.users.find(u => u.email.toLowerCase() === email.toLowerCase());
+    if (!email) return null;
+    return this.data.users.find(u => u.email && u.email.toLowerCase() === email.toLowerCase().trim());
+  }
+
+  getUserByQuery(query) {
+    if (!query) return null;
+    const clean = query.trim().toLowerCase();
+    const phoneClean = query.replace(/[^0-9]/g, '');
+
+    return this.data.users.find(u => {
+      if (u.email && u.email.toLowerCase() === clean) return true;
+      if (u.id === clean) return true;
+      if (u.name && u.name.toLowerCase() === clean) return true;
+      if (phoneClean && u.phone) {
+        const uPhoneClean = u.phone.replace(/[^0-9]/g, '');
+        if (uPhoneClean && (uPhoneClean === phoneClean || uPhoneClean.endsWith(phoneClean) || phoneClean.endsWith(uPhoneClean))) {
+          return true;
+        }
+      }
+      return false;
+    });
   }
 
   createUser(user) {
     this.data.users.push(user);
     if (!this.data.privacySettings[user.id]) {
       this.data.privacySettings[user.id] = {
-        locationSharingEnabled: false,
+        locationSharingEnabled: true,
         shareDuration: 'always',
         shareUntil: null,
         allowedMemberIds: [],
@@ -370,6 +390,17 @@ class Database {
       userId: creatorUserId,
       role: 'Admin'
     });
+    if (!this.data.privacySettings[creatorUserId]) {
+      this.data.privacySettings[creatorUserId] = {
+        locationSharingEnabled: true,
+        shareDuration: 'always',
+        shareUntil: null,
+        allowedMemberIds: [],
+        activitySharingEnabled: true
+      };
+    } else {
+      this.data.privacySettings[creatorUserId].locationSharingEnabled = true;
+    }
     this.save();
     return family;
   }
@@ -378,27 +409,48 @@ class Database {
     const existing = this.data.familyMembers.find(m => m.familyId === familyId && m.userId === userId);
     if (!existing) {
       this.data.familyMembers.push({ familyId, userId, role });
-      // Add all current family members to each other's allowed list if privacy is default
-      const famMembers = this.data.familyMembers.filter(m => m.familyId === familyId);
-      for (const m of famMembers) {
-        const priv = this.data.privacySettings[m.userId];
-        if (priv && !priv.allowedMemberIds.includes(userId) && m.userId !== userId) {
-          priv.allowedMemberIds.push(userId);
-        }
-      }
-      const myPriv = this.data.privacySettings[userId];
-      if (myPriv) {
-        myPriv.allowedMemberIds = famMembers.map(m => m.userId).filter(id => id !== userId);
-      }
-      this.save();
     }
+
+    // Ensure privacy setting has location sharing ON by default for circle
+    if (!this.data.privacySettings[userId]) {
+      this.data.privacySettings[userId] = {
+        locationSharingEnabled: true,
+        shareDuration: 'always',
+        shareUntil: null,
+        allowedMemberIds: [],
+        activitySharingEnabled: true
+      };
+    } else {
+      this.data.privacySettings[userId].locationSharingEnabled = true;
+    }
+
+    // Reciprocate allowed member IDs for all members in the family circle
+    const famMembers = this.data.familyMembers.filter(m => m.familyId === familyId);
+    const allMemberUserIds = famMembers.map(m => m.userId);
+
+    for (const m of famMembers) {
+      if (!this.data.privacySettings[m.userId]) {
+        this.data.privacySettings[m.userId] = {
+          locationSharingEnabled: true,
+          shareDuration: 'always',
+          shareUntil: null,
+          allowedMemberIds: [],
+          activitySharingEnabled: true
+        };
+      }
+      const p = this.data.privacySettings[m.userId];
+      p.locationSharingEnabled = true;
+      p.allowedMemberIds = Array.from(new Set([...(p.allowedMemberIds || []), ...allMemberUserIds.filter(id => id !== m.userId)]));
+    }
+
+    this.save();
   }
 
   getUserFamilies(userId) {
     const memberships = this.data.familyMembers.filter(m => m.userId === userId);
     return memberships.map(m => {
       const fam = this.getFamily(m.familyId);
-      return { ...fam, myRole: m.role };
+      return fam ? { ...fam, myRole: m.role } : null;
     }).filter(Boolean);
   }
 
@@ -420,19 +472,20 @@ class Database {
       if (!user) return null;
 
       const privacy = this.data.privacySettings[user.id] || {
-        locationSharingEnabled: false,
+        locationSharingEnabled: true,
         allowedMemberIds: []
       };
 
       // Check if location sharing is expired
-      let isSharingActive = privacy.locationSharingEnabled;
+      let isSharingActive = privacy.locationSharingEnabled !== false;
       if (isSharingActive && privacy.shareUntil && new Date(privacy.shareUntil).getTime() < Date.now()) {
         isSharingActive = false;
       }
 
-      // Check if requesting user is authorized to see location
+      // Check if requesting user is authorized to see location (all members of same circle are authorized)
       const isSelf = user.id === requestingUserId;
-      const isAllowed = isSelf || (privacy.allowedMemberIds && privacy.allowedMemberIds.includes(requestingUserId));
+      const isMemberOfSameFamily = requestingUserId ? this.data.familyMembers.some(fm => fm.familyId === familyId && fm.userId === requestingUserId) : true;
+      const isAllowed = isSelf || isMemberOfSameFamily || (privacy.allowedMemberIds && privacy.allowedMemberIds.includes(requestingUserId));
       const canSeeLocation = isSharingActive && isAllowed;
 
       const rawLoc = this.data.locations[user.id] || {};

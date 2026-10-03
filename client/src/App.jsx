@@ -90,17 +90,18 @@ const DEFAULT_PLACES = [
 
 export default function App() {
   // Navigation State
-  const [activeScreen, setActiveScreen] = useState('main'); // default to 'main' for immediate rich preview; splash can be re-run
+  const [activeScreen, setActiveScreen] = useState('main');
   const [mainTab, setMainTab] = useState('home'); // 'home' | 'family' | 'places' | 'me'
-  const [subScreen, setSubScreen] = useState(null); // 'add_member' | 'add_place' | 'location_settings' | 'join_family'
+  const [subScreen, setSubScreen] = useState(null);
+  const [isLoadingSession, setIsLoadingSession] = useState(true);
 
   // User & Family State
-  const [allUsers, setAllUsers] = useState([DEFAULT_INITIAL_USER]);
-  const [currentUser, setCurrentUser] = useState(DEFAULT_INITIAL_USER);
-  const [currentFamily, setCurrentFamily] = useState(DEFAULT_INITIAL_FAMILY);
-  const [members, setMembers] = useState(DEFAULT_MEMBERS);
-  const [privacy, setPrivacy] = useState({ locationSharingEnabled: true, shareDuration: 'always', allowedMemberIds: ['usr_dad', 'usr_alex', 'usr_sarah'] });
-  const [places, setPlaces] = useState(DEFAULT_PLACES);
+  const [allUsers, setAllUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [currentFamily, setCurrentFamily] = useState(null);
+  const [members, setMembers] = useState([]);
+  const [privacy, setPrivacy] = useState({ locationSharingEnabled: true, shareDuration: 'always', allowedMemberIds: [] });
+  const [places, setPlaces] = useState([]);
   const [activities, setActivities] = useState([]);
   const [notifications, setNotifications] = useState([]);
   const [activeTrip, setActiveTrip] = useState(null);
@@ -115,83 +116,61 @@ export default function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [isSimulatedOffline, setIsSimulatedOffline] = useState(false);
 
-  // Monitor network online/offline events
+  // Initial Data & Session Check
   useEffect(() => {
-    const handleOnline = () => {
-      setIsOnline(true);
-      flushOfflineBreadcrumbs();
-    };
-    const handleOffline = () => {
-      setIsOnline(false);
-    };
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, [currentUser, currentFamily]);
-
-  const flushOfflineBreadcrumbs = async () => {
-    const cached = localStorage.getItem('familylink_offline_breadcrumbs');
-    if (cached) {
-      try {
-        const breadcrumbs = JSON.parse(cached);
-        if (breadcrumbs.length > 0 && currentUser && currentFamily) {
-          await fetch('/api/location/batch', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              userId: currentUser.id,
-              familyId: currentFamily.id,
-              breadcrumbs
-            })
-          });
-          refreshFamilyData(currentFamily.id, currentUser.id);
-        }
-        localStorage.removeItem('familylink_offline_breadcrumbs');
-      } catch (e) {
-        console.error('Error flushing breadcrumbs:', e);
-      }
-    }
-  };
-
-  // WebSocket Ref
-  const wsRef = useRef(null);
-  const geoWatchRef = useRef(null);
-
-  // Initial Data Fetch
-  useEffect(() => {
-    fetchUsers();
+    initAppSession();
   }, []);
 
-  const fetchUsers = async () => {
+  const initAppSession = async () => {
     try {
+      setIsLoadingSession(true);
       const res = await fetch('/api/auth/users');
       const data = await res.json();
       setAllUsers(data.users || []);
 
-      // Check for saved user session in localStorage
       const savedUserStr = localStorage.getItem('familylink_user');
       if (savedUserStr) {
         try {
           const savedUser = JSON.parse(savedUserStr);
-          setCurrentUser(savedUser);
-          loadUserFamily(savedUser.id);
-          return;
-        } catch {}
+          const meRes = await fetch(`/api/auth/me?userId=${savedUser.id}`);
+          if (meRes.ok) {
+            const meData = await meRes.json();
+            const validUser = meData.user;
+            setCurrentUser(validUser);
+            localStorage.setItem('familylink_user', JSON.stringify(validUser));
+
+            if (meData.families && meData.families.length > 0) {
+              const savedFamStr = localStorage.getItem('familylink_family');
+              let selectedFam = meData.families[0];
+              if (savedFamStr) {
+                try {
+                  const parsed = JSON.parse(savedFamStr);
+                  const found = meData.families.find((f) => f.id === parsed.id);
+                  if (found) selectedFam = found;
+                } catch {}
+              }
+              setCurrentFamily(selectedFam);
+              localStorage.setItem('familylink_family', JSON.stringify(selectedFam));
+              await refreshFamilyData(selectedFam.id, validUser.id);
+              setActiveScreen('main');
+            } else {
+              setActiveScreen('create_or_join');
+            }
+            setIsLoadingSession(false);
+            return;
+          }
+        } catch (err) {
+          console.warn('Session verification failed, showing auth screen:', err);
+        }
       }
 
-      // Default to Mom for rich immediate preview if no session exists
-      const initialUser = data.users?.find((u) => u.id === 'usr_mom') || data.users?.[0];
-      if (initialUser) {
-        setCurrentUser(initialUser);
-        loadUserFamily(initialUser.id);
-      }
+      // If no valid session in localStorage, go to welcome / login screen!
+      setActiveScreen('welcome');
+      setIsLoadingSession(false);
     } catch (e) {
-      console.error('Error fetching users:', e);
+      console.error('Error initializing app session:', e);
+      setActiveScreen('welcome');
+      setIsLoadingSession(false);
     }
   };
 
@@ -211,9 +190,9 @@ export default function App() {
         }
         setCurrentFamily(selectedFam);
         localStorage.setItem('familylink_family', JSON.stringify(selectedFam));
-        refreshFamilyData(selectedFam.id, userId);
+        await refreshFamilyData(selectedFam.id, userId);
+        setActiveScreen('main');
       } else {
-        // If user has no circle yet, prompt them to create or join one
         setActiveScreen('create_or_join');
       }
     } catch (e) {
@@ -612,8 +591,41 @@ export default function App() {
             </div>
           )}
 
+          {/* BRANDED LOADING INTERFACE */}
+          {isLoadingSession && (
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)',
+              color: '#ffffff',
+              fontFamily: 'system-ui, -apple-system, sans-serif',
+              padding: '24px'
+            }}>
+              <div style={{
+                position: 'relative',
+                width: '80px',
+                height: '80px',
+                borderRadius: '24px',
+                background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 12px 32px rgba(79, 70, 229, 0.4)',
+                marginBottom: '24px'
+              }}>
+                <span style={{ fontSize: '38px' }}>👨‍👩‍👧‍👦</span>
+              </div>
+              <h1 style={{ fontSize: '24px', fontWeight: '800', margin: 0, letterSpacing: '-0.5px' }}>FamilyLink</h1>
+              <p style={{ fontSize: '13px', color: '#94a3b8', marginTop: '6px', fontWeight: '500' }}>Opening your family circle...</p>
+            </div>
+          )}
+
           {/* SCREEN 1: SPLASH */}
-          {activeScreen === 'splash' && (
+          {!isLoadingSession && activeScreen === 'splash' && (
             <ScreenSplash
               appName={APP_NAME}
               onContinue={() => setActiveScreen('welcome')}
@@ -621,7 +633,7 @@ export default function App() {
           )}
 
           {/* SCREEN 2: WELCOME */}
-          {activeScreen === 'welcome' && (
+          {!isLoadingSession && activeScreen === 'welcome' && (
             <ScreenWelcome
               onCreateAccount={() => setActiveScreen('auth_register')}
               onLogin={() => setActiveScreen('auth_login')}
@@ -629,7 +641,7 @@ export default function App() {
           )}
 
           {/* SCREEN 3: AUTH (REGISTER / LOGIN) */}
-          {(activeScreen === 'auth_register' || activeScreen === 'auth_login') && (
+          {!isLoadingSession && (activeScreen === 'auth_register' || activeScreen === 'auth_login') && (
             <ScreenAuth
               isLoginMode={activeScreen === 'auth_login'}
               onBack={() => setActiveScreen('welcome')}
@@ -641,7 +653,7 @@ export default function App() {
                   setCurrentFamily(families[0]);
                   localStorage.setItem('familylink_family', JSON.stringify(families[0]));
                   refreshFamilyData(families[0].id, user.id);
-                  setActiveScreen('onboarding_places');
+                  setActiveScreen('main');
                 } else {
                   setActiveScreen('create_or_join');
                 }
@@ -650,7 +662,7 @@ export default function App() {
           )}
 
           {/* SCREEN 4: CREATE OR JOIN FAMILY */}
-          {activeScreen === 'create_or_join' && (
+          {!isLoadingSession && activeScreen === 'create_or_join' && (
             <ScreenCreateOrJoinFamily
               onCreateFamily={() => setActiveScreen('create_family')}
               onJoinFamily={() => setActiveScreen('join_family')}
@@ -658,7 +670,7 @@ export default function App() {
           )}
 
           {/* SCREEN 5: CREATE FAMILY */}
-          {activeScreen === 'create_family' && (
+          {!isLoadingSession && activeScreen === 'create_family' && (
             <ScreenCreateFamily
               currentUserId={currentUser?.id}
               currentUserName={currentUser?.name}
@@ -676,7 +688,7 @@ export default function App() {
           )}
 
           {/* SCREEN 4B: JOIN FAMILY WITH CODE */}
-          {activeScreen === 'join_family' && (
+          {!isLoadingSession && activeScreen === 'join_family' && (
             <ScreenJoinFamily
               currentUserId={currentUser?.id}
               onBack={() => setActiveScreen('create_or_join')}
@@ -684,36 +696,36 @@ export default function App() {
                 setCurrentFamily(family);
                 localStorage.setItem('familylink_family', JSON.stringify(family));
                 refreshFamilyData(family.id, currentUser.id);
-                setActiveScreen('permission');
+                setActiveScreen('main');
               }}
             />
           )}
 
           {/* SCREEN 6: INVITE FAMILY */}
-          {activeScreen === 'invite_family' && (
+          {!isLoadingSession && activeScreen === 'invite_family' && (
             <ScreenInviteFamily
               family={currentFamily}
-              onDone={() => setActiveScreen('permission')}
+              onDone={() => setActiveScreen('main')}
             />
           )}
 
           {/* SCREEN 7: LOCATION PERMISSION */}
-          {activeScreen === 'permission' && (
+          {!isLoadingSession && activeScreen === 'permission' && (
             <ScreenLocationPermission
               familyName={currentFamily?.name || 'Sharma Family'}
               onAllowed={(coords) => {
                 sendLocationUpdate({ ...coords, status: 'Active' });
-                setActiveScreen('onboarding_places');
+                setActiveScreen('main');
               }}
               onDenied={() => {
                 handleUpdatePrivacy({ locationSharingEnabled: false });
-                setActiveScreen('onboarding_places');
+                setActiveScreen('main');
               }}
             />
           )}
 
           {/* SCREEN 7B: ONBOARDING PLACE CATEGORIES WITH DETAILED ADDRESS */}
-          {activeScreen === 'onboarding_places' && (
+          {!isLoadingSession && activeScreen === 'onboarding_places' && (
             <ScreenOnboardingPlaces
               familyId={currentFamily?.id}
               currentUserId={currentUser?.id}
@@ -728,7 +740,7 @@ export default function App() {
           )}
 
           {/* MAIN 4-TAB NAVIGATION APPLICATION */}
-          {activeScreen === 'main' && (
+          {!isLoadingSession && activeScreen === 'main' && (
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
               {/* TAB 1: HOME (SCREEN 8) */}
               {mainTab === 'home' && (

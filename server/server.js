@@ -116,19 +116,30 @@ function broadcastToFamily(familyId, message) {
 // For simple, trustworthy testing without friction, we allow user authentication via userId or email
 app.post('/api/auth/register', (req, res) => {
   const { name, email, phone, password, role } = req.body;
-  if (!name || !email) {
-    return res.status(400).json({ error: 'Name and email are required' });
+
+  // Search if an account already exists for this email, phone, or name
+  let user = (email ? db.getUserByEmail(email) : null) ||
+             (phone ? db.getUserByQuery(phone) : null) ||
+             (name ? db.getUserByQuery(name) : null);
+
+  if (user) {
+    // Restore existing user account! Update phone/name if provided
+    if (phone && !user.phone) user.phone = phone;
+    if (name && !user.name) user.name = name;
+    db.save();
+
+    const families = db.getUserFamilies(user.id);
+    return res.json({ user, families });
   }
 
-  const existing = db.getUserByEmail(email);
-  if (existing) {
-    return res.status(400).json({ error: 'An account with this email already exists' });
+  if (!name && !email && !phone) {
+    return res.status(400).json({ error: 'Name, email or phone is required' });
   }
 
   const newUser = {
     id: 'usr_' + Date.now(),
-    name,
-    email,
+    name: name || (email ? email.split('@')[0] : 'User'),
+    email: email || `${Date.now()}@familylink.app`,
     phone: phone || '',
     password: password || 'password',
     avatar: role === 'child' ? '👦' : '👤',
@@ -137,16 +148,36 @@ app.post('/api/auth/register', (req, res) => {
   };
 
   db.createUser(newUser);
-  res.json({ user: newUser });
+  const families = db.getUserFamilies(newUser.id);
+  res.json({ user: newUser, families });
 });
 
 app.post('/api/auth/login', (req, res) => {
-  const { email, password } = req.body;
-  const user = db.getUserByEmail(email);
-  if (!user || (password && user.password !== password)) {
-    return res.status(401).json({ error: 'Invalid email or password' });
+  const { email, phone, name, password, query } = req.body;
+  const searchTerm = email || phone || name || query;
+  if (!searchTerm) {
+    return res.status(400).json({ error: 'Please enter your email, phone, or name' });
   }
+
+  const user = db.getUserByQuery(searchTerm) || db.getUserByEmail(searchTerm);
+  if (!user) {
+    return res.status(404).json({ error: 'No account found. Please sign up.' });
+  }
+
+  if (password && user.password && user.password !== 'password' && user.password !== password) {
+    return res.status(401).json({ error: 'Invalid password' });
+  }
+
   const families = db.getUserFamilies(user.id);
+  res.json({ user, families });
+});
+
+app.get('/api/auth/me', (req, res) => {
+  const userId = req.headers['x-user-id'] || req.query.userId;
+  if (!userId) return res.status(400).json({ error: 'Missing userId' });
+  const user = db.getUser(userId);
+  if (!user) return res.status(404).json({ error: 'User not found' });
+  const families = db.getUserFamilies(userId);
   res.json({ user, families });
 });
 
@@ -156,6 +187,7 @@ app.get('/api/auth/users', (req, res) => {
     id: u.id,
     name: u.name,
     email: u.email,
+    phone: u.phone,
     avatar: u.avatar,
     role: u.role
   }));

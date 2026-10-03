@@ -1,5 +1,4 @@
 import React from 'react';
-import TopHeader from './TopHeader.jsx';
 import MapView from './MapView.jsx';
 import FamilyCard from './FamilyCard.jsx';
 
@@ -21,15 +20,7 @@ export default function ScreenHome({
 }) {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
-      {/* Top Floating Header */}
-      <TopHeader
-        currentUser={currentUser}
-        currentFamily={currentFamily}
-        unreadCount={unreadCount}
-        onOpenNotifications={onOpenNotifications}
-        onOpenProfile={onOpenProfile}
-        onFamilySelect={onFamilySelect}
-      />
+      {/* Main Interactive Map occupying full viewport */}
 
       {/* Main Interactive Map occupying full viewport */}
       <div style={{ width: '100%', height: '100%' }}>
