@@ -21,7 +21,15 @@ app.use(cors());
 app.use(express.json());
 
 if (fs.existsSync(clientDistPath)) {
-  app.use(express.static(clientDistPath));
+  app.use(express.static(clientDistPath, {
+    etag: false,
+    maxAge: 0,
+    setHeaders: (res) => {
+      res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.set('Pragma', 'no-cache');
+      res.set('Expires', '0');
+    }
+  }));
 }
 
 
@@ -617,6 +625,9 @@ app.post('/api/notifications/read', (req, res) => {
 
 app.get('*', (req, res) => {
   const indexPath = path.join(clientDistPath, 'index.html');
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
